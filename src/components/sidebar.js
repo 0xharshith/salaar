@@ -20,7 +20,7 @@ const navigation = [
 
 ]
 const teams = [
-  { id: 1, name: 'Notifications', href: '#', icon: BellOutline, current: false },
+  { id: 1, name: 'Notifications', href: 'notification', icon: BellOutline, current: false },
   { id: 2, name: 'Settings', href: '#', icon: CogIcon, current: false },
   
 ]
@@ -44,7 +44,7 @@ export default function Example() {
       */}
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-50 lg:hidden" onClose={setSidebarOpen}>
+          <Dialog as="div" className="relative z-50 hidden" onClose={setSidebarOpen}>
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -153,9 +153,9 @@ export default function Example() {
           </Dialog>
         </Transition.Root>
 
-        {/* Static sidebar for desktop */}
+       
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-          {/* Sidebar component, swap this element with another sidebar if you like */}
+   
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-600 px-6">
             <div className="flex h-16 shrink-0 items-center">
               <img
@@ -234,7 +234,7 @@ export default function Example() {
           </div>
         </div>
 
-        <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-indigo-600 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+        <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-indigo-600 px-4 py-4 shadow-sm sm:px-6 hidden">
           <button type="button" className="-m-2.5 p-2.5 text-indigo-200 lg:hidden" onClick={() => setSidebarOpen(true)}>
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-7 w-7" aria-hidden="true" />
