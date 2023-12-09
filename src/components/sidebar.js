@@ -15,7 +15,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
 const navigation = [
-  { name: 'Compliance', href: '#', icon: HomeIcon, current: true },
+  { name: 'Compliance', href: Z '#', icon: HomeIcon, current: true },
   { name: 'Payroll', href: '#', icon: UsersIcon, current: false },
 
 ]
