@@ -35,15 +35,12 @@ export default async function handler(req, res) {
     }
   }
 `;
-​
   try {
     const { data, error } = await fetchQuery(query);
-​
     if (error) {
       console.log(error);
       res.status(500).json({ statusCode: 500, message: error.message });
     }
-​
     res.status(200).json({ statusCode: 200, data });
   } catch (err) {
     console.log(err);
