@@ -173,5 +173,13 @@ export default function Home() {
       )}
     </div>
     )
-  return <button onClick={() => connect()}>Connect Wallet</button>
+  return  (<div className='min-h-screen flex items-center justify-center'>
+  <button
+    className='font-bold bg-gradient-to-r from-orange-600 to-yellow-600 px-8 py-5 rounded-2xl text-white hover:bg-green-500 focus:outline-none focus:shadow-outline-green active:bg-green-600'
+    onClick={() => connect()}
+  >
+    Connect Wallet
+  </button>
+</div>)
+
 }
