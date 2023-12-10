@@ -1,11 +1,10 @@
 import { init, fetchQuery } from "@airstack/airstack-react";
-​
 init(process.env.AIRSTACK_API_KEY);
 export default async function handler(req, res) {
   const { address } = req.query;
   //   0x3882371e9Ca68eC62F3695Fd0083cB5D3ec17984
   console.log(address);
-​
+
   const query = `
   query GetTokenTransfersFromAddressOnBase {
     baseTransfers: TokenTransfers(
