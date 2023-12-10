@@ -3,25 +3,30 @@ import Example from '@/components/sidebar'
 import * as PushSDK from '@pushprotocol/restapi'
 import {ethers} from 'ethers';
 import { useWalletClient } from 'wagmi'
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 
 export default function notification ()  {
-    const { data: walletClient } = useWalletClient()
-    console.log(walletClient)
+    const { address, isConnecting, isDisconnected } = useAccount()
+    // console.log(walletClient) 
     const recepientAddress = ""
     const [notifications,setNotifications] = useState([]);
-    //const provider = new ethers.providers.Web3Provider(window.ethereum)
-   // const signer = provider.getSigner()
+    
     useEffect(()=>{
-        const notifications = async() =>{
-            const notifs = await PushSDK.user.getFeeds({
-                user:recepientAddress,
-                env:"staging"
-            })
-            setNotifications(notifs)
-            console.log(notifs)
+        if (window?.ethereum && address) {
+            const provider = new ethers.providers.Web3Provider(window.ethereum)
+            const signer = provider.getSigner()
+            console.log(signer)
+            const notifications = async() =>{
+                const notifs = await PushSDK.user.getFeeds({
+                    user:address,
+                    env:"staging"
+                })
+                setNotifications(notifs)
+                console.log(notifs)
+            }
+            notifications()
         }
-        notifications()
-    })
+    }, [address])
   return (
     <div>
     <Example/>
